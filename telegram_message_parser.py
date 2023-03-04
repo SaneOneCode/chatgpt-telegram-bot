@@ -71,7 +71,7 @@ class TelegramMessageParser:
         if not self.check_user_allowed(str(update.effective_user.id)):
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
-                text="Sorry, you are not allowed to use this bot. Contact the bot owner for more information."
+                text="Ты не имеешь права обращаться к Шельману, обратись к администратору @SaneOne для получения прав"
             )
             return
 
