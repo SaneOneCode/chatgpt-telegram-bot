@@ -199,7 +199,7 @@ class TelegramMessageParser:
     async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text="Привет и Искуственный Интеллект Шельман"
+            text="Привет я Искуственный Интеллект Шельман"
         )
 
     # clear context command
@@ -207,7 +207,7 @@ class TelegramMessageParser:
         self.message_manager.clear_context(str(update.effective_chat.id))
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text="Context cleared."
+            text="Контекст Удален."
         )
     
     # get user id command
@@ -221,7 +221,7 @@ class TelegramMessageParser:
     async def unknown(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text="Sorry, I didn't understand that command."
+            text="Такой команды нет, Еблан."
         )
 
     # check if user is allowed to use this bot, add user to "allowed_users" in config.json
