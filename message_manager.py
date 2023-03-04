@@ -63,7 +63,7 @@ class MessageManager:
             super_users = json.load(f)["super_users"]
         if user in super_users:
             url = self.openai_parser.image_generation(user, prompt)
-            return (url, "Hey boss, it's on your account. 💰")
+            return (url, "Шельман нарисовал то что вы просили")
         ############################
 
 
