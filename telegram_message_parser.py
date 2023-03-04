@@ -91,11 +91,17 @@ class TelegramMessageParser:
 
     # voice message in private chat, speech to text with Whisper API and process with ChatGPT
     async def chat_voice(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        # 
-        if update.message.reply_to_message is not None:
-            await context.bot.send_voice(chat_id=update.message.chat_id, voice=update.message.voice)
-        else:
-            pass
+        message = update.message 
+ 
+    # Проверяем, является ли сообщение голосовым и является ли оно ответом на сообщение бота 
+    if message.voice and message.reply_to_message and message.reply_to_message.from_user.id == self.bot_id: 
+ 
+        # Обработка голосового сообщения и отправка ответа 
+        ... 
+         
+    else:
+        pass 
+        # Игнорирование других голосовых сообщений
         
         # check if user is allowed to use this bot
         if not self.check_user_allowed(str(update.effective_user.id)):
