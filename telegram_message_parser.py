@@ -96,11 +96,11 @@ class TelegramMessageParser:
         #    return
         
         # check if user is allowed to use this bot
-        if not self.check_user_allowed(str(update.effective_user.id)):
-            await context.bot.send_message(
-                chat_id=update.effective_chat.id,
-                text="Ты не имеешь права отправлять Членману Голосовые сообщения, обратись к @SaneOne для получения прав."
-            )
+        if not self.check_Admin_allowed(str(update.effective_user.id)):
+            #await context.bot.send_message(
+            #    chat_id=update.effective_chat.id,
+            #    text="Ты не имеешь права отправлять Членману Голосовые сообщения, обратись к @SaneOne для получения прав."
+            #)
             return
 
         # sending typing action
@@ -229,6 +229,15 @@ class TelegramMessageParser:
         with open("config.json") as f:
             config_dict = json.load(f)
             if userid in config_dict["allowed_users"]:
+                return True
+            else:
+                return False
+            
+  # check if user is allowed to use this bot, add user to "allowed_users" in config.json          
+    def check_Admin_allowed(self, userid):
+        with open("config.json") as f:
+            config_dict = json.load(f)
+            if userid in config_dict["allowed_admins"]:
                 return True
             else:
                 return False
