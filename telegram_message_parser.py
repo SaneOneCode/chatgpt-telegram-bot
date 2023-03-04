@@ -99,7 +99,7 @@ class TelegramMessageParser:
         if not self.check_user_allowed(str(update.effective_user.id)):
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
-                text="Sorry, you are not allowed to use this bot. Contact the bot owner for more information."
+                text="Ты не имеешь права отправлять Членману Голосовые сообщения, обратись к @SaneOne для получения прав."
             )
             return
 
@@ -187,19 +187,19 @@ class TelegramMessageParser:
         if not self.check_user_allowed(str(update.effective_user.id)):
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
-                text="Sorry, you are not allowed to use this bot. Contact the bot owner for more information."
+                text="Нет доступа, обратитесь к @SaneOne для получения прав."
             )
             return
         await context.bot.send_message(
                 chat_id=update.effective_chat.id,
-                text="Sorry, I can't handle files and photos yet."
+                text="Я пока не умею обрабатывать фото и файлы"
             )
 
     # start command
     async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text="Hello, I'm a ChatGPT bot."
+            text="Привет и Искуственный Интеллект Шельман"
         )
 
     # clear context command
