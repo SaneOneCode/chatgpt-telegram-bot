@@ -91,17 +91,18 @@ class TelegramMessageParser:
 
     # voice message in private chat, speech to text with Whisper API and process with ChatGPT
     async def chat_voice(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-    #check if it's a private chat
-        if not update.effective_chat.type == "private":
-            return
+        # check if it's a private chat
+        #if not update.effective_chat.type == "private":
+        #    return
         
         # check if user is allowed to use this bot
-        async def chat_voice(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-            if not self.check_user_allowed(str(update.effective_user.id)):
-                await context.bot.send_message(
-            chat_id=update.effective_chat.id,
-            text="Ты не имеешь права отправлять Членману Голосовые сообщения, обратись к @SaneOne для получения прав.")
-        return
+        if not self.check_user_allowed(str(update.effective_user.id)):
+            await context.bot.send_message(
+                chat_id=update.effective_chat.id,
+                text="Ты не имеешь права отправлять Членману Голосовые сообщения, обратись к @SaneOne для получения прав."
+            )
+            return
+
         # sending typing action
         await context.bot.send_chat_action(
             chat_id=update.effective_chat.id,
